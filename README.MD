@@ -151,6 +151,10 @@ echo '    +--------------------------------------------------+'
 Что бы порадовать таких работяг как вы.  
 Если вам нравится проект и вы хотите помочь молодому энтузиасту я буду очень благодарен  
 > qr для хелпы: 
-![qr-transfer.jpg](doc/qr-transfer.jpg)
+<details>
+  <summary>Q1: What is the best Language in the World? </summary>
+   ![qr-transfer.jpg](doc/qr-transfer.jpg)
+</details>
+
 
 
