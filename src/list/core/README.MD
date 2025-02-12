@@ -1,0 +1,1 @@
+### Содержит списки на которые ссылается training/commands/ListLoader/init.cfg
