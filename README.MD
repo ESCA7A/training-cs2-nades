@@ -23,12 +23,13 @@ All files are completely open and free to use.
 - If the configs were useful, you can support the author. <br>
 - Если конфиги оказались полезными, вы можете поддержать автора.  
 
-<div align="center">
-  <img src="doc/images/qr-transfer.jpg" alt="QR‑код для доната" width="250"/>
+<div align="center">  
+	<img src="doc/src/images/qr-transfer.png" width="250"  />
 </div>
 <div align="center">
 	**QR‑код для доната | qr for donate**  
 </div>
+
 ---  
 
 ## 🎮 Happy training!  
