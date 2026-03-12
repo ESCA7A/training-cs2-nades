@@ -1,8 +1,8 @@
 
 | Launges documentation |
 |--|
-| [Как установить](doc/ru/README.ru.md) |
-| [How to install](doc/ru/README.en.md) |
+| [Как установить](doc/translations/ru/README.ru.md) |
+| [How to install](doc/translations/ru/README.en.md) |
 
 ## 💝 Поддержать проект | Support the project
 
