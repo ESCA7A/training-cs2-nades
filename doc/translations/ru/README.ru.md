@@ -123,7 +123,7 @@
 [InputService] execing .aliases/training/maps/de_anubis/ct.cfg
 
 .spawn1
-[ваша моделька появится на текущей карте de_anubis на спавне для ct с номером 1_]
+[ваша моделька появится на текущей карте de_anubis на спавне для ct с номером 1]
 ```
 
 ![setposes.gif](./../../src/gif/setposes.gif)
@@ -169,43 +169,53 @@
 
 **Пошаговая установка:**
 
-1. 📁 Скопируй скачанную директорию в папку игры по пути cs:
+1. Перейти в последние релизы <a href="https://github.com/ESCA7A/training-cs2-nades/releases">[клик]<a>
+2. скачать архив Source code
+3. ПКМ по архиву -> извлечь в текущую папку
+4. 📁 Скопируйте извлеченную директорию в папку игры по пути cs:
    ```
-   путь_к_cs2/csgo/cfg/
+   <путь_к_cs2>/csgo/cfg/
    ```
 
-2. 📄 Скопируй `example.training.cfg`и перемести в папку /cfg
+5. 📄 Зайди в папку `training-cs2-nades-Z.X.C/training` Скопируй `example.training.cfg`, перемести в папку /cfg
 
-3. 🔄 В папке cfg переименуй файл `example.training.cfg` -> `training.cfg` 
+6. 🔄 В папке cfg переименуй файл `example.training.cfg` -> `training.cfg` 
 
-4. 🎮 В игре:
-   - Запусти тренировочный режим
-   - Введи в консоли: `exec training`
+7. Открой в текстовом редакторе training.cfg и замени пути:
 
-5. 🎉 *Учи гранаты с удовольствием, а главное - бесплатно!*
+	7.1. `exec training/main.cfg;` -> `exec <training-cs2-nades-Z.X.C>/training/main.cfg;`
+
+	7.2. `exec_async training/helloworld.cfg;` -> `exec_async <training-cs2-nades-Z.X.C>/training/helloworld.cfg;`
+
+8. 🎮 Зайди в игру на любую карту и введи в консоли: `exec training` - [Наглядный запуск в игре](#part-1)
+
+
+9. 🎉 *Учи гранаты с удовольствием, а главное - бесплатно!*
 
 ---
 
-## <a name="part-11">⚙️ PART 11. Легкая установка</a>
+## <a name="part-11">⚙️ PART 11. Easy Installation</a>
 
-> ❓ *"Мне лень. Как это запустить?"*
+> ❓ *"I'm too lazy. How do I run this?"*
 
-**Пошаговая установка:**
+**Step-by-step installation:**
 
-1. 📁 Скопируй директорию `training` в папку игры:
-   ```
-   game/csgo/cfg/
-   ```
+1. Go to the latest releases <a href="https://github.com/ESCA7A/training-cs2-nades/releases">[click]<a>
+2. Download the Source code archive
+3. Right-click the archive -> extract to the current folder
+4. 📁 Copy the extracted directory to the game folder along the path cs:
+```
+<path_to_cs2>/csgo/cfg/
+```
 
-2. 🚀 Запусти cs-nades.exe 
-	<details>
-	  <summary>Подробнее о cs-nades.exe</summary>
-	  <a href="https://github.com/ESCA7A/cs2-nades-runner)">Перейти к источнику</a>
-	</details>
+5. 🚀 Run cs-nades.exe
+<details>
+<summary>Learn more about cs-nades.exe</summary>
+<a href="https://github.com/ESCA7A/cs2-nades-runner)">Go to source</a>
+</details>
 
+6. 🎮 Launch the game on any map and enter `exec training` in the console - [Visual in-game launch](#part-1)
 
-3. 🎮 Зайди в игру на любую карту и введи в консоли: `exec training` - [Наглядный запуск в игре](#part-1)
-
-4. 🎉 *Учи гранаты с удовольствием, а главное - бесплатно!*
+7. 🎉 *Learn grenades with pleasure, and best of all - for free!*
 
 ---

@@ -119,7 +119,7 @@ When loading the config, the basic methods for working with it are described �
 [InputService] execing .aliases/training/maps/de_anubis/ct.cfg
 
 .spawn1
-[your model will appear on the current de_anubis map at spawn for ct number 1_]
+[your model will appear on the current de_anubis map at spawn for ct number 1]
 ```
 
 ![setposes.gif](./../../src/gif/setposes.gif)
@@ -165,20 +165,27 @@ When loading the config, the basic methods for working with it are described �
 
 **Step-by-step installation:**
 
-1. 📁 Copy the downloaded directory to the game folder along the cs path:
+1. Go to the latest releases <a href="https://github.com/ESCA7A/training-cs2-nades/releases">[click]<a>
+2. Download the Source code archive
+3. Right-click the archive -> extract to the current folder
+4. 📁 Copy the extracted directory to the game folder along the path cs:
 ```
-path_to_cs2/csgo/cfg/
+<path_to_cs2>/csgo/cfg/
 ```
 
-2. 📄 Copy `example.training.cfg` and move it to the /cfg folder
+5. 📄 Go to the `training-cs2-nades-Z.X.C/training` folder. Copy `example.training.cfg` and move it to the /cfg folder.
 
-3. 🔄 In the cfg folder, rename the file `example.training.cfg` to `training.cfg`
+6. 🔄 In the cfg folder, rename the file `example.training.cfg` to `training.cfg`
 
-4. 🎮 In-game:
-- Start training mode
-- Enter `exec training` in the console
+7. Open training.cfg in a text editor and replace the paths:
 
-5. 🎉 *Learn grenades with pleasure, and most importantly - Free!*
+7.1. `exec training/main.cfg;` to `exec <training-cs2-nades-Z.X.C>/training/main.cfg;`
+
+7.2. `exec_async training/helloworld.cfg;` -> `exec_async <training-cs2-nades-Z.X.C>/training/helloworld.cfg;`
+
+8. 🎮 Launch the game on any map and enter `exec training` in the console - [Visual in-game launch](#part-1)
+
+9. 🎉 *Learn grenades with pleasure, and most importantly - for free!*
 
 ---
 
