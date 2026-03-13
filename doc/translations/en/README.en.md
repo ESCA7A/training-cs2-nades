@@ -17,8 +17,8 @@
 | 7️⃣ | [Connecting Training Spots](#part-7) |
 | 8️⃣ | [Quick Commands](#part-8) |
 | 9️⃣ | [Available Maps](#part-9) |
-| 🔟 | [Manual Configuration Installation](#part-10) |
-| 1️⃣1️⃣ | [Easy Configuration Installation](#part-11) |
+| 🔟 | [Easy Configuration Installation](#part-10) |
+| 1️⃣1️⃣ | [Manual Configuration Installation](#part-11) |
 
 ---
 
@@ -159,7 +159,33 @@ When loading the config, the basic methods for working with it are described �
 
 ---
 
-## <a name="part-10">⚙️ PART 10. Manual Installation</a>
+## <a name="part-10">⚙️ PART 10. Easy Installation</a>
+
+> ❓ *"I'm too lazy. How do I run this?"*
+
+**Step-by-step installation:**
+
+1. Go to the latest releases <a href="https://github.com/ESCA7A/training-cs2-nades/releases">[click]<a>
+2. Download the Source code archive
+3. Right-click the archive -> extract to the current folder
+4. 📁 Copy the extracted directory to the game folder along the path cs:
+```
+<path_to_cs2>/csgo/cfg/
+```
+
+5. 🚀 Run cs-nades.exe
+<details>
+<summary>Learn more about cs-nades.exe</summary>
+<a href="https://github.com/ESCA7A/cs2-nades-runner">Go to source</a>
+</details>
+
+6. 🎮 Launch the game on any map and enter `exec training` in the console - [Visual in-game launch](#part-1)
+
+7. 🎉 *Learn grenades with pleasure, and best of all - for free!*
+
+---
+
+## <a name="part-11">⚙️ PART 11. Manual Installation</a>
 
 > ❓ *"How do I run this?"*
 
@@ -186,31 +212,5 @@ When loading the config, the basic methods for working with it are described �
 8. 🎮 Launch the game on any map and enter `exec training` in the console - [Visual in-game launch](#part-1)
 
 9. 🎉 *Learn grenades with pleasure, and most importantly - for free!*
-
----
-
-## <a name="part-11">⚙️ PART 11. Easy Installation</a>
-
-> ❓ *"I'm too lazy. How do I run this?"*
-
-**Step-by-step installation:**
-
-1. Go to the latest releases <a href="https://github.com/ESCA7A/training-cs2-nades/releases">[click]<a>
-2. Download the Source code archive
-3. Right-click the archive -> extract to the current folder
-4. 📁 Copy the extracted directory to the game folder along the path cs:
-```
-<path_to_cs2>/csgo/cfg/
-```
-
-5. 🚀 Run cs-nades.exe
-<details>
-<summary>Learn more about cs-nades.exe</summary>
-<a href="https://github.com/ESCA7A/cs2-nades-runner)">Go to source</a>
-</details>
-
-6. 🎮 Launch the game on any map and enter `exec training` in the console - [Visual in-game launch](#part-1)
-
-7. 🎉 *Learn grenades with pleasure, and best of all - for free!*
 
 ---
