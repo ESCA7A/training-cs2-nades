@@ -13,29 +13,272 @@
   <!-- Docsify -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css"
+    href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/vue.css"
   >
 
-  <!-- Dark theme -->
+  <!-- Search -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css"
-    media="(prefers-color-scheme: dark)"
+    href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/search.min.css"
   >
 
   <style>
     :root {
-      --theme-color: #de9b35;
+      /* FACEIT / CS2 palette */
+      --theme-color: #ff5500;
+      --theme-color-dark: #d94300;
+
+      --sidebar-width: 280px;
+
+      --base-font-size: 15px;
+      --code-font-size: 13px;
+
+      --heading-color: #f0f0f0;
+      --text-color: #c7c7c7;
     }
 
+    /*
+     * Dark CS2 / FACEIT appearance
+     */
+
+    body {
+      background: #0d0f10;
+    }
+
+    .app-nav {
+      margin-right: 25px;
+    }
+
+    .app-nav a {
+      color: #d5d5d5;
+      font-weight: 500;
+    }
+
+    .app-nav a:hover {
+      color: #ff5500;
+    }
+
+    /*
+     * Sidebar
+     */
+
+    .sidebar {
+      background: #111416;
+      border-right: 1px solid #24282b;
+    }
+
+    .sidebar-nav > ul > li > p {
+      color: #ff5500;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 22px;
+    }
+
+    .sidebar-nav a {
+      color: #bfc3c5;
+      transition:
+        color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .sidebar-nav a:hover {
+      color: #ffffff;
+      background: rgba(255, 85, 0, 0.08);
+    }
+
+    .sidebar-nav li.active > a {
+      color: #ff5500;
+      border-right: 3px solid #ff5500;
+      background: rgba(255, 85, 0, 0.1);
+      font-weight: 600;
+    }
+
+    /*
+     * Sidebar logo
+     */
+
+    .app-name-link {
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+
+      color: #ffffff !important;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .app-name-link::before {
+      content: "CS2";
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 42px;
+      height: 28px;
+
+      border-radius: 4px;
+
+      background: #ff5500;
+      color: #ffffff;
+
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    /*
+     * Content
+     */
+
     .markdown-section {
-      max-width: 900px;
+      max-width: 920px;
+      color: #c7c7c7;
+    }
+
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3 {
+      color: #f2f2f2;
+    }
+
+    .markdown-section h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+    }
+
+    .markdown-section h2 {
+      border-bottom: 1px solid #292d30;
+      padding-bottom: 8px;
+    }
+
+    .markdown-section h3 {
+      color: #e6e6e6;
+    }
+
+    .markdown-section strong {
+      color: #ffffff;
+    }
+
+    .markdown-section a {
+      color: #ff6a22;
+    }
+
+    .markdown-section a:hover {
+      color: #ff8a4d;
+    }
+
+    /*
+     * Code
+     */
+
+    .markdown-section code {
+      color: #ff9a66;
+      background: #171a1c;
+      border: 1px solid #292d30;
+      border-radius: 4px;
+    }
+
+    .markdown-section pre {
+      background: #111416;
+      border: 1px solid #292d30;
+      border-radius: 6px;
+    }
+
+    .markdown-section pre > code {
+      color: #d7d7d7;
+      background: transparent;
+      border: 0;
+    }
+
+    /*
+     * Tables
+     */
+
+    .markdown-section table {
+      display: table;
+      width: 100%;
+    }
+
+    .markdown-section th {
+      background: #171a1c;
+      color: #ffffff;
+    }
+
+    .markdown-section td,
+    .markdown-section th {
+      border-color: #292d30;
+    }
+
+    /*
+     * Blockquotes
+     */
+
+    .markdown-section blockquote {
+      border-left: 4px solid #ff5500;
+      background: rgba(255, 85, 0, 0.05);
+      padding: 8px 18px;
+    }
+
+    /*
+     * Search
+     */
+
+    .search .search-keyword,
+    .search .search-keyword:hover {
+      color: #ff5500;
+    }
+
+    .search .search .search-keyword {
+      color: #ff5500;
+    }
+
+    /*
+     * Buttons
+     */
+
+    .markdown-section .button,
+    .markdown-section button {
+      border-radius: 5px;
+    }
+
+    /*
+     * Scrollbar
+     */
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0d0f10;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #303538;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff5500;
     }
   </style>
 </head>
 
 <body>
-  <div id="app">Загрузка документации...</div>
+
+  <div id="app">
+    <div style="
+      padding: 40px;
+      color: #888;
+      font-family: sans-serif;
+    ">
+      Loading documentation...
+    </div>
+  </div>
 
   <script>
     window.$docsify = {
@@ -45,13 +288,23 @@
 
       homepage: 'README.md',
 
-      loadSidebar: false,
+      loadSidebar: true,
+
+      subMaxLevel: 3,
 
       auto2top: true,
 
+      relativePath: true,
+
+      routerMode: 'hash',
+
       search: {
-        paths: 'auto'
-      }
+        placeholder: 'Search documentation...',
+        noData: 'No results found.',
+        depth: 6
+      },
+
+      themeColor: '#ff5500'
     };
   </script>
 
@@ -60,5 +313,6 @@
 
   <!-- Search -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@5/dist/plugins/search.min.js"></script>
+
 </body>
 </html>
