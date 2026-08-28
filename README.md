@@ -24,7 +24,7 @@ All files are completely open and free to use.
 - Если конфиги оказались полезными, вы можете поддержать автора.  
 
 <div align="center">  
-	<img src="doc/src/images/qr-transfer.png" width="250"  />
+    <img src="src/images/qr-transfer.png" width="250" alt="QR code" />
 </div>
 <div align="center">
 	**QR‑код для доната | qr for donate**  
