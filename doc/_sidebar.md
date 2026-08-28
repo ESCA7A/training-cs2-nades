@@ -1,6 +1,6 @@
 - **CS2 TRAINING NADES**
 
-  - [🏠 Главная](README.md)
+  - [🏠 Home](README.md)
 
 - **DOCUMENTATION**
 

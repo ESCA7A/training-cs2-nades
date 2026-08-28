@@ -10,243 +10,543 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <!-- Docsify -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/vue.css"
   >
 
-  <!-- Search -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/search.min.css"
-  >
-
   <style>
+    /* =========================================================
+       CS2 / FACEIT DESIGN SYSTEM
+       ========================================================= */
+
     :root {
-      /* FACEIT / CS2 palette */
-      --theme-color: #ff5500;
-      --theme-color-dark: #d94300;
+      --accent: #ff5500;
+      --accent-hover: #ff6a1a;
 
-      --sidebar-width: 280px;
+      --bg: #0b0d0f;
+      --bg-secondary: #101315;
+      --bg-tertiary: #15191c;
 
-      --base-font-size: 15px;
-      --code-font-size: 13px;
+      --border: #24292d;
+      --border-light: #2d3338;
 
-      --heading-color: #f0f0f0;
-      --text-color: #c7c7c7;
+      --text: #d7dadd;
+      --text-muted: #858c92;
+      --text-bright: #f5f6f7;
+
+      --sidebar-width: 270px;
+
+      --content-max-width: 980px;
+
+      --font-size: 15px;
     }
 
-    /*
-     * Dark CS2 / FACEIT appearance
-     */
+
+    /* =========================================================
+       GLOBAL
+       ========================================================= */
+
+    html,
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
 
     body {
-      background: #0d0f10;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
     }
 
-    .app-nav {
-      margin-right: 25px;
+    * {
+      box-sizing: border-box;
     }
 
-    .app-nav a {
-      color: #d5d5d5;
-      font-weight: 500;
+    ::selection {
+      background: rgba(255, 85, 0, 0.3);
+      color: white;
     }
 
-    .app-nav a:hover {
-      color: #ff5500;
-    }
 
-    /*
-     * Sidebar
-     */
+    /* =========================================================
+       SIDEBAR
+       ========================================================= */
 
     .sidebar {
-      background: #111416;
-      border-right: 1px solid #24282b;
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
     }
 
-    .sidebar-nav > ul > li > p {
-      color: #ff5500;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      margin-top: 22px;
+    .sidebar-nav {
+      padding: 0 14px 30px;
     }
 
-    .sidebar-nav a {
-      color: #bfc3c5;
-      transition:
-        color 0.15s ease,
-        background 0.15s ease;
-    }
 
-    .sidebar-nav a:hover {
-      color: #ffffff;
-      background: rgba(255, 85, 0, 0.08);
-    }
+    /* Brand */
 
-    .sidebar-nav li.active > a {
-      color: #ff5500;
-      border-right: 3px solid #ff5500;
-      background: rgba(255, 85, 0, 0.1);
-      font-weight: 600;
+    .app-name {
+      padding: 0;
+      margin: 0;
     }
-
-    /*
-     * Sidebar logo
-     */
 
     .app-name-link {
       display: flex !important;
       align-items: center;
-      gap: 10px;
 
-      color: #ffffff !important;
+      height: 72px;
+
+      padding: 0 22px;
+
+      color: var(--text-bright) !important;
+
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: -0.3px;
+
+      border-bottom: 1px solid var(--border);
+
+      text-decoration: none !important;
     }
 
     .app-name-link::before {
       content: "CS2";
 
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
 
       width: 42px;
       height: 28px;
 
+      margin-right: 11px;
+
+      background: var(--accent);
+
       border-radius: 4px;
 
-      background: #ff5500;
-      color: #ffffff;
+      color: white;
 
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 900;
       letter-spacing: 0.5px;
     }
 
+
+    /* Sidebar sections */
+
+    .sidebar-nav > ul {
+      margin-top: 22px;
+    }
+
+    .sidebar-nav > ul > li > p {
+      margin: 22px 10px 8px;
+
+      color: #686f75;
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav ul li ul {
+      margin: 0;
+    }
+
+    .sidebar-nav li {
+      margin: 2px 0;
+    }
+
+    .sidebar-nav a {
+      display: block;
+
+      padding: 9px 12px;
+
+      color: var(--text-muted);
+
+      border-radius: 5px;
+
+      font-size: 14px;
+      font-weight: 500;
+
+      transition:
+        color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .sidebar-nav a:hover {
+      color: var(--text-bright);
+
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .sidebar-nav li.active > a {
+      color: white;
+
+      background: rgba(255, 85, 0, 0.1);
+
+      box-shadow:
+        inset 3px 0 0 var(--accent);
+    }
+
+
+    /* =========================================================
+       GITHUB
+       ========================================================= */
+
     /*
-     * Content
+     * Docsify's default GitHub ribbon is intentionally disabled.
+     *
+     * This fixes the huge GitHub image/ribbon which can otherwise
+     * occupy the top of the page.
      */
 
+    .github-corner {
+      display: none !important;
+    }
+
+    .github-link {
+      display: flex;
+
+      align-items: center;
+      gap: 9px;
+
+      margin: 24px 10px 0;
+      padding: 10px 12px;
+
+      color: #aeb4b8;
+
+      border: 1px solid var(--border);
+      border-radius: 5px;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      transition:
+        border-color 0.15s ease,
+        color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .github-link:hover {
+      color: white;
+
+      border-color: #3a4146;
+
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .github-icon {
+      width: 17px;
+      height: 17px;
+
+      fill: currentColor;
+    }
+
+
+    /* =========================================================
+       MAIN CONTENT
+       ========================================================= */
+
+    .main {
+      background: var(--bg);
+    }
+
     .markdown-section {
-      max-width: 920px;
-      color: #c7c7c7;
+      max-width: var(--content-max-width);
+
+      padding-top: 48px;
+      padding-bottom: 80px;
+
+      color: var(--text);
+
+      font-size: var(--font-size);
+      line-height: 1.75;
     }
 
     .markdown-section h1,
     .markdown-section h2,
-    .markdown-section h3 {
-      color: #f2f2f2;
+    .markdown-section h3,
+    .markdown-section h4 {
+      color: var(--text-bright);
+
+      font-weight: 750;
+
+      letter-spacing: -0.4px;
     }
 
     .markdown-section h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
+      margin-bottom: 28px;
+
+      font-size: 34px;
+      line-height: 1.2;
     }
 
     .markdown-section h2 {
-      border-bottom: 1px solid #292d30;
-      padding-bottom: 8px;
+      margin-top: 48px;
+      padding-bottom: 10px;
+
+      border-bottom: 1px solid var(--border);
+
+      font-size: 23px;
     }
 
     .markdown-section h3 {
-      color: #e6e6e6;
+      margin-top: 32px;
+
+      font-size: 18px;
     }
 
-    .markdown-section strong {
-      color: #ffffff;
+    .markdown-section h4 {
+      font-size: 15px;
     }
+
+
+    /* Links */
 
     .markdown-section a {
-      color: #ff6a22;
+      color: var(--accent);
+
+      font-weight: 500;
+
+      text-decoration: none;
     }
 
     .markdown-section a:hover {
-      color: #ff8a4d;
+      color: var(--accent-hover);
+      text-decoration: underline;
     }
 
-    /*
-     * Code
-     */
 
-    .markdown-section code {
-      color: #ff9a66;
-      background: #171a1c;
-      border: 1px solid #292d30;
-      border-radius: 4px;
+    /* Strong */
+
+    .markdown-section strong {
+      color: #f0f1f2;
     }
 
-    .markdown-section pre {
-      background: #111416;
-      border: 1px solid #292d30;
+
+    /* Horizontal line */
+
+    .markdown-section hr {
+      margin: 40px 0;
+
+      border: 0;
+      border-top: 1px solid var(--border);
+    }
+
+
+    /* =========================================================
+       IMAGES
+       ========================================================= */
+
+    .markdown-section img {
+      max-width: 100%;
+      height: auto;
+
       border-radius: 6px;
     }
 
-    .markdown-section pre > code {
-      color: #d7d7d7;
-      background: transparent;
-      border: 0;
+    /*
+     * Prevent accidentally huge images.
+     *
+     * The QR image is explicitly constrained below.
+     */
+
+    .markdown-section img[src*="qr-transfer"] {
+      display: block;
+
+      width: 220px;
+      max-width: 220px;
+
+      height: auto;
+
+      margin: 20px auto;
+
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+
+      background: white;
+
+      padding: 10px;
     }
 
-    /*
-     * Tables
-     */
+
+    /* =========================================================
+       CODE
+       ========================================================= */
+
+    .markdown-section code {
+      padding: 3px 6px;
+
+      color: #ff9b6b;
+
+      background: #15191c;
+
+      border: 1px solid var(--border);
+
+      border-radius: 4px;
+
+      font-size: 0.9em;
+    }
+
+    .markdown-section pre {
+      margin: 24px 0;
+
+      background: #0f1214;
+
+      border: 1px solid var(--border);
+
+      border-radius: 7px;
+
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .markdown-section pre > code {
+      padding: 20px;
+
+      color: #d5d9dc;
+
+      background: transparent;
+
+      border: 0;
+
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       BLOCKQUOTES
+       ========================================================= */
+
+    .markdown-section blockquote {
+      margin: 24px 0;
+
+      padding: 12px 18px;
+
+      color: #bfc4c8;
+
+      background: rgba(255, 85, 0, 0.045);
+
+      border-left: 3px solid var(--accent);
+
+      border-radius: 0 5px 5px 0;
+    }
+
+
+    /* =========================================================
+       TABLES
+       ========================================================= */
 
     .markdown-section table {
       display: table;
+
       width: 100%;
+
+      margin: 24px 0;
+
+      border-collapse: separate;
+      border-spacing: 0;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 6px;
     }
 
     .markdown-section th {
-      background: #171a1c;
-      color: #ffffff;
+      color: #e9ebed;
+
+      background: var(--bg-tertiary);
+
+      font-weight: 700;
     }
 
     .markdown-section td,
     .markdown-section th {
-      border-color: #292d30;
+      padding: 11px 14px;
+
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    /*
-     * Blockquotes
-     */
-
-    .markdown-section blockquote {
-      border-left: 4px solid #ff5500;
-      background: rgba(255, 85, 0, 0.05);
-      padding: 8px 18px;
+    .markdown-section tr:last-child td {
+      border-bottom: 0;
     }
 
-    /*
-     * Search
-     */
-
-    .search .search-keyword,
-    .search .search-keyword:hover {
-      color: #ff5500;
+    .markdown-section td:last-child,
+    .markdown-section th:last-child {
+      border-right: 0;
     }
 
-    .search .search .search-keyword {
-      color: #ff5500;
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    .search {
+      margin: 0 10px;
+      padding-bottom: 8px;
+
+      border-bottom: 1px solid var(--border);
     }
 
-    /*
-     * Buttons
-     */
+    .search .search input {
+      color: var(--text);
 
-    .markdown-section .button,
-    .markdown-section button {
+      background: #0c0f11;
+
+      border: 1px solid var(--border);
       border-radius: 5px;
     }
 
-    /*
-     * Scrollbar
-     */
+    .search .search input:focus {
+      border-color: rgba(255, 85, 0, 0.55);
+
+      outline: none;
+    }
+
+    .search .search input::placeholder {
+      color: #626a70;
+    }
+
+    .search .search-keyword {
+      color: var(--accent);
+    }
+
+
+    /* =========================================================
+       PAGINATION
+       ========================================================= */
+
+    .docsify-pagination-container {
+      margin-top: 60px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .pagination-item {
+      color: var(--text-muted);
+    }
+
+    .pagination-item-title {
+      color: var(--text-bright);
+    }
+
+
+    /* =========================================================
+       SCROLLBAR
+       ========================================================= */
 
     ::-webkit-scrollbar {
       width: 8px;
@@ -254,16 +554,45 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #0d0f10;
+      background: var(--bg);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #303538;
+      background: #2b3034;
+
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #ff5500;
+      background: #3b4247;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 768px) {
+
+      .markdown-section {
+        padding: 30px 20px 60px;
+      }
+
+      .markdown-section h1 {
+        font-size: 28px;
+      }
+
+      .markdown-section h2 {
+        font-size: 21px;
+      }
+
+      .app-name-link {
+        height: 60px;
+      }
+
+      .sidebar {
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.25);
+      }
     }
   </style>
 </head>
@@ -271,20 +600,20 @@
 <body>
 
   <div id="app">
-    <div style="
-      padding: 40px;
-      color: #888;
-      font-family: sans-serif;
-    ">
-      Loading documentation...
-    </div>
+    Loading documentation...
   </div>
 
   <script>
     window.$docsify = {
+
       name: 'CS2 Training Nades',
 
-      repo: 'ESCA7A/training-cs2-nades',
+      /*
+       * Don't use Docsify's repo option.
+       *
+       * It creates the default GitHub ribbon.
+       * We use our own GitHub button instead.
+       */
 
       homepage: 'README.md',
 
@@ -300,7 +629,7 @@
 
       search: {
         placeholder: 'Search documentation...',
-        noData: 'No results found.',
+        noData: 'Nothing found.',
         depth: 6
       },
 
@@ -308,11 +637,76 @@
     };
   </script>
 
-  <!-- Docsify -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@5"></script>
 
-  <!-- Search -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@5/dist/plugins/search.min.js"></script>
+
+  <script>
+    /*
+     * Add GitHub button to the sidebar.
+     */
+
+    window.addEventListener('DOMContentLoaded', function () {
+
+      const sidebar = document.querySelector('.sidebar-nav');
+
+      if (!sidebar) {
+        return;
+      }
+
+      const github = document.createElement('a');
+
+      github.className = 'github-link';
+
+      github.href =
+        'https://github.com/ESCA7A/training-cs2-nades';
+
+      github.target = '_blank';
+
+      github.rel = 'noopener noreferrer';
+
+      github.innerHTML = `
+        <svg
+          class="github-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="
+            M12 .5
+            C5.65 .5 .5 5.65 .5 12
+            c0 5.08 3.29 9.39 7.86 10.91
+            .58.1.79-.25.79-.56
+            0-.28-.01-1.02-.02-2
+            -3.2.7-3.88-1.54-3.88-1.54
+            -.53-1.33-1.28-1.68-1.28-1.68
+            -1.04-.71.08-.7.08-.7
+            1.15.08 1.76 1.18 1.76 1.18
+            1.02 1.75 2.67 1.25 3.32.96
+            .1-.74.4-1.25.73-1.54
+            -2.55-.29-5.24-1.28-5.24-5.7
+            0-1.26.45-2.29 1.18-3.1
+            -.12-.29-.51-1.47.11-3.06
+            0 0 .96-.31 3.15 1.18
+            .91-.25 1.88-.38 2.85-.38
+            .97 0 1.94.13 2.85.38
+            2.19-1.49 3.15-1.18 3.15-1.18
+            .62 1.59.23 2.77.11 3.06
+            .73.81 1.18 1.84 1.18 3.1
+            0 4.43-2.7 5.41-5.26 5.69
+            .41.35.78 1.04.78 2.1
+            0 1.52-.01 2.75-.01 3.12
+            0 .31.21.67.8.56
+            C20.21 21.39 23.5 17.08 23.5 12
+            23.5 5.65 18.35.5 12 .5z
+          "/>
+        </svg>
+
+        <span>View on GitHub</span>
+      `;
+
+      sidebar.appendChild(github);
+    });
+  </script>
 
 </body>
 </html>
