@@ -10,14 +10,15 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <!-- Docsify 5 core -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/vue.css"
+    href="https://cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css"
   >
 
   <style>
     /* =========================================================
-       CS2 / FACEIT DESIGN SYSTEM
+       CS2 / FACEIT
        ========================================================= */
 
     :root {
@@ -29,49 +30,72 @@
       --bg-tertiary: #15191c;
 
       --border: #24292d;
-      --border-light: #2d3338;
+      --border-light: #30363b;
 
-      --text: #d7dadd;
+      --text: #d4d8db;
       --text-muted: #858c92;
       --text-bright: #f5f6f7;
 
       --sidebar-width: 270px;
-
       --content-max-width: 980px;
 
       --font-size: 15px;
+      --line-height: 1.7;
     }
 
 
     /* =========================================================
-       GLOBAL
+       IMPORTANT: SCROLL / LAYOUT
        ========================================================= */
 
-    html,
+    html {
+      background: var(--bg);
+
+      /*
+       * Do not use smooth scrolling here.
+       *
+       * Docsify changes the URL and scroll position itself.
+       * Browser smooth scrolling can make route changes feel
+       * like the page is being thrown around.
+       */
+      scroll-behavior: auto;
+
+      /*
+       * Prevent horizontal artifacts.
+       */
+      overflow-x: hidden;
+    }
+
     body {
+      margin: 0;
+
+      min-height: 100vh;
+
       background: var(--bg);
       color: var(--text);
+
+      overflow-x: hidden;
     }
 
-    body {
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
+    /*
+     * Let the browser use normal document scrolling.
+     *
+     * Do NOT put overflow: auto / scroll on .main.
+     * This prevents nested scrolling and "jumping" behavior.
+     */
+
+    .main {
+      min-height: 100vh;
+
+      background: var(--bg);
+
+      overflow: visible;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    .content {
+      position: relative;
 
-    ::selection {
-      background: rgba(255, 85, 0, 0.3);
-      color: white;
+      overflow: visible;
     }
 
 
@@ -81,7 +105,14 @@
 
     .sidebar {
       background: var(--bg-secondary);
+
       border-right: 1px solid var(--border);
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      scrollbar-width: thin;
+      scrollbar-color: #30363b transparent;
     }
 
     .sidebar-nav {
@@ -108,6 +139,7 @@
 
       font-size: 16px;
       font-weight: 800;
+
       letter-spacing: -0.3px;
 
       border-bottom: 1px solid var(--border);
@@ -127,19 +159,21 @@
 
       margin-right: 11px;
 
+      flex-shrink: 0;
+
       background: var(--accent);
 
       border-radius: 4px;
 
-      color: white;
+      color: #fff;
 
       font-size: 11px;
       font-weight: 900;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
     }
 
 
-    /* Sidebar sections */
+    /* Sidebar navigation */
 
     .sidebar-nav > ul {
       margin-top: 22px;
@@ -154,11 +188,8 @@
       font-weight: 800;
 
       letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
 
-    .sidebar-nav ul li ul {
-      margin: 0;
+      text-transform: uppercase;
     }
 
     .sidebar-nav li {
@@ -178,20 +209,20 @@
       font-weight: 500;
 
       transition:
-        color 0.15s ease,
-        background 0.15s ease;
+        color .15s ease,
+        background .15s ease;
     }
 
     .sidebar-nav a:hover {
-      color: var(--text-bright);
+      color: #fff;
 
-      background: rgba(255, 255, 255, 0.035);
+      background: rgba(255,255,255,.035);
     }
 
     .sidebar-nav li.active > a {
-      color: white;
+      color: #fff;
 
-      background: rgba(255, 85, 0, 0.1);
+      background: rgba(255,85,0,.1);
 
       box-shadow:
         inset 3px 0 0 var(--accent);
@@ -199,15 +230,8 @@
 
 
     /* =========================================================
-       GITHUB
+       GITHUB BUTTON
        ========================================================= */
-
-    /*
-     * Docsify's default GitHub ribbon is intentionally disabled.
-     *
-     * This fixes the huge GitHub image/ribbon which can otherwise
-     * occupy the top of the page.
-     */
 
     .github-corner {
       display: none !important;
@@ -233,17 +257,17 @@
       text-decoration: none;
 
       transition:
-        border-color 0.15s ease,
-        color 0.15s ease,
-        background 0.15s ease;
+        border-color .15s ease,
+        color .15s ease,
+        background .15s ease;
     }
 
     .github-link:hover {
-      color: white;
+      color: #fff;
 
       border-color: #3a4146;
 
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255,255,255,.03);
     }
 
     .github-icon {
@@ -255,14 +279,11 @@
 
 
     /* =========================================================
-       MAIN CONTENT
+       CONTENT
        ========================================================= */
 
-    .main {
-      background: var(--bg);
-    }
-
     .markdown-section {
+      width: 100%;
       max-width: var(--content-max-width);
 
       padding-top: 48px;
@@ -271,7 +292,7 @@
       color: var(--text);
 
       font-size: var(--font-size);
-      line-height: 1.75;
+      line-height: var(--line-height);
     }
 
     .markdown-section h1,
@@ -282,7 +303,7 @@
 
       font-weight: 750;
 
-      letter-spacing: -0.4px;
+      letter-spacing: -.4px;
     }
 
     .markdown-section h1 {
@@ -307,41 +328,20 @@
       font-size: 18px;
     }
 
-    .markdown-section h4 {
-      font-size: 15px;
-    }
-
-
-    /* Links */
-
     .markdown-section a {
       color: var(--accent);
-
-      font-weight: 500;
 
       text-decoration: none;
     }
 
     .markdown-section a:hover {
       color: var(--accent-hover);
+
       text-decoration: underline;
     }
 
-
-    /* Strong */
-
     .markdown-section strong {
       color: #f0f1f2;
-    }
-
-
-    /* Horizontal line */
-
-    .markdown-section hr {
-      margin: 40px 0;
-
-      border: 0;
-      border-top: 1px solid var(--border);
     }
 
 
@@ -349,7 +349,16 @@
        IMAGES
        ========================================================= */
 
+    /*
+     * Critical:
+     *
+     * Images must not change the page height after they load.
+     * max-width alone is not enough.
+     */
+
     .markdown-section img {
+      display: block;
+
       max-width: 100%;
       height: auto;
 
@@ -357,27 +366,24 @@
     }
 
     /*
-     * Prevent accidentally huge images.
-     *
-     * The QR image is explicitly constrained below.
+     * QR code has a known size.
      */
 
     .markdown-section img[src*="qr-transfer"] {
-      display: block;
-
       width: 220px;
+      height: 220px;
+
       max-width: 220px;
 
-      height: auto;
-
       margin: 20px auto;
+      padding: 10px;
+
+      background: #fff;
 
       border: 1px solid var(--border-light);
       border-radius: 8px;
 
-      background: white;
-
-      padding: 10px;
+      object-fit: contain;
     }
 
 
@@ -396,7 +402,7 @@
 
       border-radius: 4px;
 
-      font-size: 0.9em;
+      font-size: .9em;
     }
 
     .markdown-section pre {
@@ -408,7 +414,9 @@
 
       border-radius: 7px;
 
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 8px 30px rgba(0,0,0,.18);
+
+      overflow-x: auto;
     }
 
     .markdown-section pre > code {
@@ -421,6 +429,7 @@
       border: 0;
 
       font-size: 13px;
+
       line-height: 1.65;
     }
 
@@ -436,7 +445,7 @@
 
       color: #bfc4c8;
 
-      background: rgba(255, 85, 0, 0.045);
+      background: rgba(255,85,0,.045);
 
       border-left: 3px solid var(--accent);
 
@@ -458,10 +467,11 @@
       border-collapse: separate;
       border-spacing: 0;
 
-      overflow: hidden;
-
       border: 1px solid var(--border);
+
       border-radius: 6px;
+
+      overflow: hidden;
     }
 
     .markdown-section th {
@@ -496,24 +506,27 @@
 
     .search {
       margin: 0 10px;
+
       padding-bottom: 8px;
 
       border-bottom: 1px solid var(--border);
     }
 
     .search .search input {
+      width: 100%;
+
       color: var(--text);
 
       background: #0c0f11;
 
       border: 1px solid var(--border);
       border-radius: 5px;
+
+      outline: none;
     }
 
     .search .search input:focus {
-      border-color: rgba(255, 85, 0, 0.55);
-
-      outline: none;
+      border-color: rgba(255,85,0,.55);
     }
 
     .search .search input::placeholder {
@@ -547,6 +560,13 @@
     /* =========================================================
        SCROLLBAR
        ========================================================= */
+
+    html,
+    body,
+    .sidebar {
+      scrollbar-width: thin;
+      scrollbar-color: #2b3034 transparent;
+    }
 
     ::-webkit-scrollbar {
       width: 8px;
@@ -591,7 +611,7 @@
       }
 
       .sidebar {
-        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.25);
+        box-shadow: 10px 0 30px rgba(0,0,0,.25);
       }
     }
   </style>
@@ -608,19 +628,15 @@
 
       name: 'CS2 Training Nades',
 
-      /*
-       * Don't use Docsify's repo option.
-       *
-       * It creates the default GitHub ribbon.
-       * We use our own GitHub button instead.
-       */
-
       homepage: 'README.md',
 
       loadSidebar: true,
 
       subMaxLevel: 3,
 
+      /*
+       * Keep automatic top scrolling only for route changes.
+       */
       auto2top: true,
 
       relativePath: true,
@@ -643,18 +659,20 @@
 
   <script>
     /*
-     * Add GitHub button to the sidebar.
+     * GitHub button
      */
 
     window.addEventListener('DOMContentLoaded', function () {
 
-      const sidebar = document.querySelector('.sidebar-nav');
+      const sidebar =
+        document.querySelector('.sidebar-nav');
 
       if (!sidebar) {
         return;
       }
 
-      const github = document.createElement('a');
+      const github =
+        document.createElement('a');
 
       github.className = 'github-link';
 
