@@ -31,10 +31,10 @@ All files are completely open and free to use.
 </div>
 
 CRYPTO
-TON: `UQCaCWINkcnsrWxSh-2L2OdG48zy0_gcWxmadRdrriuDdQ3Z` 
-Tron/TRC20: `TRnDoyRETDJnzckDrguV9E3QxcKiczkRBB` 
-Etherium/ERC20: `0xB1D881CE525AB4567eD590c589F569a01B612D66` 
-Solana/SOL: `CqFgJVUMi94he2RsZmktkzU39CXwiNUdBy4wwDBHZwLq` 
+TON: `UQCaCWINkcnsrWxSh-2L2OdG48zy0_gcWxmadRdrriuDdQ3Z`  
+Tron/TRC20: `TRnDoyRETDJnzckDrguV9E3QxcKiczkRBB`  
+Etherium/ERC20: `0xB1D881CE525AB4567eD590c589F569a01B612D66`   
+Solana/SOL: `CqFgJVUMi94he2RsZmktkzU39CXwiNUdBy4wwDBHZwLq`   
 
 ---  
 
